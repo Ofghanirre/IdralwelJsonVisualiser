@@ -13,6 +13,6 @@ par défaut la fonction `create_graph` donnera des exports au format:
 vous pouvez désactiver ces exports en fournissant comme paramètre un ou deux booléens à la fonction `create_step_graph`
 ex: 
 ```py
-create_step_graph(stepParser, OUTPUT_NAME, pdf=False, png=False)`
+create_step_graph(stepParser, OUTPUT_NAME, pdf=False, png=False)
 ```
 Ne fournira donc qu'un output au format **dot**
