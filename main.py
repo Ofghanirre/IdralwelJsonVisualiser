@@ -30,13 +30,15 @@ def args_parsing():
         print("|\tError, folder must be specified using option -f or --file\n|\tOption -h or --help for help\n'")
         sys.exit()
     if result.output == None:
-        print("|\tWarning, output file not defined, created ./output/idralwelGraph by default\n|\tCan be specified using option -o or --output\n|\tOption -h or --help for help\n'")
+        print("|\tWarning, output file not defined, using ./output/idralwelGraph by default\n|\tCan be specified using option -o or --output\n|\tOption -h or --help for help\n'")
     elif result.output == "graph":
         print(f"|\t{result.output} is an invalid name, using default name ./output/idralwelGraph\n'")
+    else:
+        OUTPUT_NAME = result.output
     print("|\tArgs : ", result.__dict__.__str__()[1:-1])
     QUEST_FOLDER_PATH = result.folder+"/quest/"
     DIALOG_FOLDER_PATH = result.folder+"/Dialogs/"
-    OUTPUT_NAME = result.output
+
     return result
 
 
