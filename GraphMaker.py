@@ -28,8 +28,14 @@ def graph_response(graph, responsesList, source):
                                       color="red"))
 
 
-def create_step_graph(stepParser: StepParser, outputName, output_path = "./output/", pdf=True, png=True, dot=True):
-    graph = pydot.Dot(graph_name=outputName, graph_type='digraph', beautify=True, forcelabels=False, rankdir="LR")
+def create_step_graph(stepParser: StepParser, outputName, pdf=False, png=False, dot=False, horizontal=True):
+    graph = pydot.Dot(
+        graph_name=outputName,
+        graph_type='digraph',
+        beautify=True,
+        forcelabels=False,
+        rankdir="LR" if horizontal else "TB"
+    )
     graph.set_node_defaults(nodesep=200.0)
 
     steps = stepParser.step_list
@@ -53,12 +59,12 @@ def create_step_graph(stepParser: StepParser, outputName, output_path = "./outpu
         graph_response(graph, step["responses"], f"{step['id']}_responses")
 
     if (dot):
-        graph.write_dot(f"{output_path}{outputName}.dot")
-        print(f"|\t Format dot generated as {output_path}{outputName}.dot")
+        graph.write_dot(f"{outputName}.dot")
+        print(f"|\t Format dot generated as {outputName}.dot")
     if (png):
-        graph.write_png(f"{output_path}{outputName}.png")
-        print(f"|\t Format png generated as {output_path}{outputName}.png")
+        graph.write_png(f"{outputName}.png")
+        print(f"|\t Format png generated as {outputName}.png")
     if (pdf):
-        graph.write_pdf(f"{output_path}{outputName}.pdf")
-        print(f"|\t Format pdf generated as {output_path}{outputName}.pdf")
+        graph.write_pdf(f"{outputName}.pdf")
+        print(f"|\t Format pdf generated as {outputName}.pdf")
 
