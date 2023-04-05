@@ -1,18 +1,31 @@
 # IdralwelJsonVisualiser
-Script python permettant d'afficher avec pydot un graphe représentant les inclusions et déroulés d'une aventure au format JSON Idralwel
+#### By Ofghanirre ~ Antonin JEAN
 
-Placer vos dossiers JSON formatté pour le programme Idralwel dans un dossier, et remplacer les chemins définis dans le `main.py` jusqu'au chemin des quest et des dialogues
+------
 
-Fournissez un dossier de sortie ainsi qu'un nom de fichier de sortie
+### Description:
+Python script that let you display with pydot a graph showcasing the inclusions and processing of an adventure / quest 
+at JSON Idralwel's format.
 
-par défaut la fonction `create_graph` donnera des exports au format:
-- dot
-- pdf
-- png
+- Place your files containing the Adventure well formatted for Idralwel in a folder and give the latter as argument to the
+script
 
-vous pouvez désactiver ces exports en fournissant comme paramètre un ou deux booléens à la fonction `create_step_graph`
-ex: 
-```py
-create_step_graph(stepParser, OUTPUT_NAME, pdf=False, png=False)
-```
-Ne fournira donc qu'un output au format **dot**
+### Utilisation Console :
+```txt
+[Idralwel Json Visualiser]
+usage: main.py [-h] [-f FOLDER] [-o OUTPUT] [-v] [--pdf] [--dot] [--png]                                                          
+                                                                                                                                  
+Idralwel Json Visualiser let you create and store dot graph out of special JSON formatted Adventure based off the Idralwel Project
+                                                                                                                                  
+options:                                                                                                                          
+  -h, --help            show this help message and exit                                                                           
+  -f FOLDER, --folder FOLDER                                                                                                      
+                        The Adventure folder to search from, needs to have a quest folder and Dialogs folder in it                
+  -o OUTPUT, --output OUTPUT                                                                                                      
+                        The output file name to create (do not include extension)                                                 
+  -v, --vertical        The output graph will be vertical, default horizontal                                                     
+  --pdf                 Output a pdf file                                                                                         
+  --dot                 Output a dot file                                                                                         
+  --png                 Output a png file     
+  ```
+
